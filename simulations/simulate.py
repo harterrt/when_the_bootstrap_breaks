@@ -3,8 +3,8 @@ import numpy as np
 
 CI = namedtuple('ConfidenceInterval', ['point', 'low', 'high'])
 
-def resample(data):
-    return(data.sample(replace=True, n=len(data.index)))
+def resample(data, random_state=None):
+    return(data.sample(replace=True, n=len(data.index), random_state=random_state))
 
 
 def bootstrap(data, function, iterations=100):
@@ -15,7 +15,7 @@ def bootstrap(data, function, iterations=100):
     iterations: Number of iterations to run. Defaults to 1000.
     '''
     point_estimate = function(data)
-    distribution = [function(resample(data)) for x in range(iterations)]
+    distribution = [function(resample(data, x)) for x in range(iterations)]
 
     # print(point_estimate)
     # print(np.percentile(distribution, 97.5))
@@ -52,7 +52,10 @@ def eval_bootstrap(function, population, sample_size, meta_iter=100):
 
     true_value = function(population)
     cis = [
-        bootstrap(population.sample(n=sample_size, replace=True), function)
+        bootstrap(
+            population.sample(n=sample_size, replace=True, random_state=x),
+            function
+        )
         for x in range(meta_iter)
     ]
 
