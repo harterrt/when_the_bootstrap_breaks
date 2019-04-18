@@ -22,11 +22,6 @@ def bootstrap(data, function, iterations=100):
     point_estimate = function(data)
     distribution = [function(resample(data, x)) for x in range(iterations)]
 
-    # print(point_estimate)
-    # print(np.percentile(distribution, 97.5))
-    # print(np.percentile(distribution, 2.5))
-    # print(distribution)
-
     return(CI(
         point_estimate,
         2*point_estimate - np.percentile(distribution, 97.5),

@@ -1,3 +1,2 @@
-0.91
 Cheeky confidence intervals for how often our confidence intervals are right:
 ConfidenceInterval(point=0.91, low=0.8600000000000001, high=0.9700000000000001)
