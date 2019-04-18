@@ -10,5 +10,8 @@ bootstrap_results = sim.eval_bootstrap(mean, coin_flip, 100)
 # Success rate
 print(np.mean(bootstrap_results))
 
-# Cheeky confidence intervals
+print(
+    "Cheeky confidence intervals for "
+    "how often our confidence intervals are right:"
+)
 print(sim.bootstrap(pd.DataFrame(bootstrap_results), mean))
