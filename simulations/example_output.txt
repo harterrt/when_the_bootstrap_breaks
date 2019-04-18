@@ -1,2 +1,10 @@
 Cheeky confidence intervals for how often our confidence intervals are right:
+
+Binomial p=0.5
 ConfidenceInterval(point=0.91, low=0.8600000000000001, high=0.9700000000000001)
+
+Binomial p=0.01
+ConfidenceInterval(point=0.62, low=0.52475, high=0.72)
+
+Binomial p=0.99
+ConfidenceInterval(point=0.64, low=0.5547500000000001, high=0.72)
