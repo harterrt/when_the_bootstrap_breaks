@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from functools import partial
-from plotnine import ggplot, aes, geom_line
+from plotnine import ggplot, aes, geom_line, scale_x_log10, ylim
 import plotnine as pn
 
 from simulations import simulate as sim
@@ -22,7 +22,7 @@ def eval_ci_over_sample_size(population):
                 mean,
                 population,
                 x,
-                meta_iter=100
+                meta_iter=1000
             )))
 
         return(out)
@@ -48,7 +48,8 @@ def plot_ci_eval(df):
     return(
         ggplot(molten, aes(x='sample_size', y='value', color='variable'))
         + geom_line()
-        + pn.scales.scale_x_log10()
+        + scale_x_log10()
+        + ylim(0, 1)
     )
 
 
