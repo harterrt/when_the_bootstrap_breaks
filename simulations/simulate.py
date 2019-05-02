@@ -73,7 +73,7 @@ def ci_contains(ci, point):
     )
 
 
-def eval_ci_method(ci_method, stat_fn, population, sample_size, meta_iter=100):
+def eval_ci_method(ci_method, stat_fn, population, sample_size, meta_iter=200):
     '''Test the effectiveness of a CI generation method
 
     To test the effectiveness of a CI generation method (e.g. bootstrapping)
