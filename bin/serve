@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+from livereload import Server, shell
+server = Server()
+server.watch('slides')
+server.watch(
+    'slides/*.md'
+)
+server.watch(
+    'slides/static/*'
+)
+server.watch(
+    'slides/static/plots/*'
+)
+
+server.serve(root='slides/', port=5052)
